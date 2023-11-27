@@ -1,0 +1,4 @@
+/home/dlyvern/Projects/Drone/cmake-build-debug/CMakeFiles/Drone.dir
+/home/dlyvern/Projects/Drone/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dlyvern/Projects/Drone/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/dlyvern/Projects/Drone/cmake-build-debug/CMakeFiles/Drone_autogen.dir

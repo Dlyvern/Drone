@@ -1,0 +1,11 @@
+# ninja log v5
+1119	1376	1699859066618655688	Drone	7cc3ea7a5e6b7ab9
+130	1098	1699859066342658777	CMakeFiles/Drone.dir/mainwindow.cpp.o	833c77564c8c388f
+1	129	1699859065370669675	Drone_autogen/mocs_compilation.cpp	52fb555a05b7b59c
+130	1119	1699859066362658553	CMakeFiles/Drone.dir/Drone.cpp.o	96c3f37860660010
+1	129	1699859065370669675	/home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/timestamp	52fb555a05b7b59c
+130	1075	1699859066318659046	CMakeFiles/Drone.dir/main.cpp.o	31edceaccd51877c
+151	975	1699855176052556245	CMakeFiles/Drone.dir/Packet.cpp.o	995e4dda15e7544f
+129	1080	1699859066322659001	CMakeFiles/Drone.dir/Drone_autogen/mocs_compilation.cpp.o	a6d36e5ade9b0bd0
+1	129	1699859065370669675	/home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/mocs_compilation.cpp	52fb555a05b7b59c
+1	129	1699859065370669675	Drone_autogen/timestamp	52fb555a05b7b59c
