@@ -25,8 +25,8 @@ Drone::Drone()
     m_ActionsList->addItem("Robot - Enable");
     m_ActionsList->addItem("Robot - Disable");
     m_ActionsList->addItem("Robot - LongTest");
-    m_ActionsList->addItem("Server - Test");
     m_ActionsList->addItem("Recorder - Enable");
+    m_ActionsList->addItem("Recorder - Disable");
     m_ActionsList->addItem("Copyist - CopyFromBagsToFlash");
     m_ActionsList->addItem("RtspCamera - Enable");
 
