@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Drone.dir/Drone_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/Drone.dir/src/Drone.cpp.o"
   "CMakeFiles/Drone.dir/src/Drone.cpp.o.d"
+  "CMakeFiles/Drone.dir/src/LogsWidget.cpp.o"
+  "CMakeFiles/Drone.dir/src/LogsWidget.cpp.o.d"
   "CMakeFiles/Drone.dir/src/Packet.cpp.o"
   "CMakeFiles/Drone.dir/src/Packet.cpp.o.d"
   "CMakeFiles/Drone.dir/src/main.cpp.o"

@@ -2,13 +2,24 @@
 
 Drone::Drone()
 {
+    auto logs_widget = new LogsWidget{this};
+    auto scroll_area = new QScrollArea;
+    scroll_area->setWidgetResizable(true);
+    scroll_area->setWidget(logs_widget);
+
+    connect(this, &Drone::Log, logs_widget, &LogsWidget::Log);
+
+    m_ModulesTable = new QTableWidget{this};
+
+    m_ModulesTable->setHorizontalHeaderLabels({"Name", "Status"});
+
     m_Layout = new QVBoxLayout;
+
     m_ActionsList= new QListWidget{this};
+
     m_CommandProgress = new QProgressBar{this};
 
     m_CommandProgress->setRange(0, 100);
-
-    m_CommandProgress->move({600, 600});
 
     m_ActionsList->addItem("Robot - DoDiagnostic");
     m_ActionsList->addItem("Robot - Enable");
@@ -17,60 +28,40 @@ Drone::Drone()
     m_ActionsList->addItem("Server - Test");
     m_ActionsList->addItem("Recorder - Enable");
     m_ActionsList->addItem("Copyist - CopyFromBagsToFlash");
-    m_ActionsList->move({500, 300});
+    m_ActionsList->addItem("RtspCamera - Enable");
+
     m_ActionsList->resize({500, 200});
 
     connect(m_ActionsList, &QListWidget::itemClicked, this, &Drone::SendMission);
-
-    m_LogMessages = new QListWidget(this);
-    m_LogMessages->resize({500, 168});
 
     auto layout = new QHBoxLayout;
 
     m_ConnectButton = new QPushButton(this);
     m_ConnectButton->setText("Connect to server");
-    m_ConnectButton->move(500, 0);
-    connect(m_ConnectButton, &QPushButton::clicked, this, &Drone::Connect);
 
     m_DisconnectButton = new QPushButton(this);
     m_DisconnectButton->setText("Disconnect from server");
-    m_DisconnectButton->move(500, 50);
+
+    connect(m_ConnectButton, &QPushButton::clicked, this, &Drone::Connect);
+    connect(m_DisconnectButton, &QPushButton::clicked, this, &Drone::Disconnect);
 
     layout->addWidget(m_ConnectButton);
     layout->addWidget(m_DisconnectButton);
+
+    m_Layout->addWidget(m_ModulesTable);
+    m_Layout->addWidget(m_ActionsList);
+    m_Layout->addWidget(m_CommandProgress);
     m_Layout->addLayout(layout);
+    m_Layout->addWidget(scroll_area);
 
-    connect(m_DisconnectButton, &QPushButton::clicked, this, [this]
-    {
-        if(!m_IsConnected)
-        {
-            Log("Not connected to server");
-            return;
-        }
-
-        QJsonObject data;
-
-        data["type"] = "cmd";
-        data["cmd"] = "disconnect";
-
-        QByteArray container = MakeMessageForServer(std::move(data));
-
-        m_TCPSocket->write(container);
-
-        m_TCPSocket->waitForBytesWritten();
-
-        m_TCPSocket->disconnect();
-
-        m_IsConnected = false;
-        Log("Disconnected from server");
-    });
+    this->setLayout(m_Layout);
 }
 
 void Drone::SendMission(QListWidgetItem *item)
 {
     if(!m_IsConnected)
     {
-        Log("Not connected to server");
+        emit Log("Not connected to server");
         return;
     }
 
@@ -98,7 +89,7 @@ void Drone::Connect()
 {     
     if(m_IsConnected)
     {
-        Log("Already connected");
+        emit Log("Already connected");
         return;
     }
 
@@ -111,7 +102,7 @@ void Drone::Connect()
     if(!m_TCPSocket->waitForConnected())
     {
 
-        Log("Could not connect to server");
+        emit Log("Could not connect to server");
         return;
     }
 
@@ -133,8 +124,7 @@ void Drone::Connect()
 
     m_TCPSocket->waitForBytesWritten();
 
-
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     QJsonObject get_op_data;
 
     get_op_data["type"] = "get_op";
@@ -145,18 +135,7 @@ void Drone::Connect()
 
     m_TCPSocket->waitForBytesWritten();
 
-    Log("Connected to TCP/IP Server");
-}
-
-void Drone::Log(const QString &message)
-{
-    QDateTime currentTime = QDateTime::currentDateTime();
-
-    QString formattedTime = currentTime.toString("yyyy-MM-dd hh:mm:ss");
-
-    QString log_message = formattedTime + "-Drone: " + message;
-
-    m_LogMessages->addItem(new QListWidgetItem(log_message));
+    emit Log("Connected to TCP/IP Server");
 }
 
 QByteArray Drone::MakeMessageForServer(QJsonObject &&data)
@@ -176,7 +155,7 @@ void Drone::ReadMessageFromServer()
 
     if(!packet.Unpack(dataForInitialization))
     {
-        Log("Got a broken message");
+        emit Log("Got a broken message");
     }
 
     const QJsonObject &data = packet.GetData();
@@ -195,7 +174,7 @@ void Drone::ReadMessageFromServer()
 
         result +=  data["res_arg"].toString();
 
-        Log(result);
+        emit Log(result);
 
         m_CommandProgress->setValue(100);
     }
@@ -206,7 +185,7 @@ void Drone::ReadMessageFromServer()
 
         message = data["msg"].toString();
 
-        Log(message);
+        emit Log(message);
     }
 
     else if(data["type"] == "feedback")
@@ -219,6 +198,32 @@ void Drone::ReadMessageFromServer()
             m_CommandProgress->setValue(70);
         }
     }
-    else Log("Unknown type of message from server");
+    else emit Log("Unknown type of message from server");
+}
+
+void Drone::Disconnect()
+{
+    if(!m_IsConnected)
+    {
+        emit Log("Not connected to server");
+        return;
+    }
+
+    QJsonObject data;
+
+    data["type"] = "cmd";
+    data["cmd"] = "disconnect";
+
+    QByteArray container = MakeMessageForServer(std::move(data));
+
+    m_TCPSocket->write(container);
+
+    m_TCPSocket->waitForBytesWritten();
+
+    m_TCPSocket->disconnect();
+
+    m_IsConnected = false;
+    emit Log("Disconnected from server");
+
 }
 

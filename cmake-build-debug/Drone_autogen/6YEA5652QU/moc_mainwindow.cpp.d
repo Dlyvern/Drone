@@ -1,6 +1,7 @@
 /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/6YEA5652QU/moc_mainwindow.cpp: /home/dlyvern/Projects/Drone/include/mainwindow.h \
   /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/moc_predefs.h \
   /home/dlyvern/Projects/Drone/include/Drone.hpp \
+  /home/dlyvern/Projects/Drone/include/LogsWidget.hpp \
   /home/dlyvern/Projects/Drone/include/Packet.hpp \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -243,6 +244,7 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QByteArray \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDataStream \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonDocument \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonObject \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
@@ -358,6 +360,8 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QProgressBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollArea \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
@@ -381,11 +385,14 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressbar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollarea.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \

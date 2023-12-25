@@ -26,6 +26,8 @@ set(PROJECT_SOURCES
         include/Drone.hpp
         include/Packet.hpp
         src/Packet.cpp
+        include/LogsWidget.hpp
+        src/LogsWidget.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

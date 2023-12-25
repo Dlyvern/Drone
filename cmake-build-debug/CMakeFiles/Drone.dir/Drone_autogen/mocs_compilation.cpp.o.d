@@ -338,6 +338,16 @@ CMakeFiles/Drone.dir/Drone_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QProgressBar \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressbar.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollArea \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollarea.h \
+ /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/6YEA5652QU/../../../include/LogsWidget.hpp \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
+ /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/6YEA5652QU/moc_LogsWidget.cpp \
+ /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/6YEA5652QU/../../../include/LogsWidget.hpp \
  /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/6YEA5652QU/moc_mainwindow.cpp \
  /home/dlyvern/Projects/Drone/cmake-build-debug/Drone_autogen/6YEA5652QU/../../../include/mainwindow.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \

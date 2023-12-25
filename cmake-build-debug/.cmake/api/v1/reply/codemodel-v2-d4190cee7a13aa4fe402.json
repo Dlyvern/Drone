@@ -41,7 +41,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Drone::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Drone-Debug-fc14044d8ed36782636a.json",
+					"jsonFile" : "target-Drone-Debug-f85d5e7716a3dd88d0da.json",
 					"name" : "Drone",
 					"projectIndex" : 0
 				},
@@ -64,6 +64,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

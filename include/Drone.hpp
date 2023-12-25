@@ -16,6 +16,11 @@
 #include "QLabel"
 #include "QProgressBar"
 
+#include "QTableWidget"
+
+#include "QScrollArea"
+#include "LogsWidget.hpp"
+
 class Drone : public QWidget
 {
     Q_OBJECT
@@ -24,9 +29,9 @@ private:
     QPushButton* m_DisconnectButton{nullptr};
     QLabel* m_InfoConnected{nullptr};
     QProgressBar* m_CommandProgress{nullptr};
+    QTableWidget* m_ModulesTable{nullptr};
 
     QTcpSocket *m_TCPSocket{nullptr};
-    QListWidget *m_LogMessages{nullptr};
     QListWidget* m_ActionsList{nullptr};
     QHostAddress m_TCPIpAddress{"127.0.0.1"};
     int m_TCPPort{8080};
@@ -40,8 +45,6 @@ private:
 
     int m_MaxNumberOfConnectionAttempts{10};
 
-    void Log(const QString &message);
-
     QByteArray MakeMessageForServer(QJsonObject &&data);
 
 private slots:
@@ -51,12 +54,16 @@ private slots:
 
     void SendMission(QListWidgetItem *item);
 
+    void Disconnect();
+
 
 public:
 
     explicit Drone();
-
     void Start();
+
+signals:
+    void Log(const QString &message);
 
 };
 

@@ -127,6 +127,9 @@
 		<Unit filename="/home/dlyvern/Projects/Drone/include/Drone.hpp">
 			<Option target="Drone"/>
 		</Unit>
+		<Unit filename="/home/dlyvern/Projects/Drone/include/LogsWidget.hpp">
+			<Option target="Drone"/>
+		</Unit>
 		<Unit filename="/home/dlyvern/Projects/Drone/include/Packet.hpp">
 			<Option target="Drone"/>
 		</Unit>
@@ -137,6 +140,9 @@
 			<Option target="Drone"/>
 		</Unit>
 		<Unit filename="/home/dlyvern/Projects/Drone/src/Drone.cpp">
+			<Option target="Drone"/>
+		</Unit>
+		<Unit filename="/home/dlyvern/Projects/Drone/src/LogsWidget.cpp">
 			<Option target="Drone"/>
 		</Unit>
 		<Unit filename="/home/dlyvern/Projects/Drone/src/Packet.cpp">
